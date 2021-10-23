@@ -40,6 +40,13 @@ You can simplify some complex real world problems if you think it's not worth il
 	<p>
 		Edit the unit tests and press the green "Run" button on the top right side of the IDE, or <kbd>Shift</kbd> + <kbd>F10</kbd>. User can interact with the program via the console.
 	</p>
+	<h3>Usage Guide</h3>
+		<ul>
+			<li>
+				To run the ATM in DEV mode, enter ```dev``` at the Card Number entering screen (beginning screen).
+				This will allow you to access the DEV MESSAGE at the bottom of the screen for 'debugging' purposes.
+			</li>
+		</ul>
 
 <h2>Environment Description</h2>
  <ul>
