@@ -2,12 +2,6 @@
 
 #include <utility>
 
-//ATMController::ATMController(BankSystemDev& givenBankSystem) {
-//    cashBin = CashBinDev();
-//    displayManager = ATMDisplayManagerDev();
-//    bankSystem = givenBankSystem;
-//}
-
 ATMController::ATMController(BankSystemDev& givenBankSystem, size_t cashInBin) {
     cashBin = CashBinDev(cashInBin);
     displayManager = ATMDisplayManagerDev();
@@ -54,10 +48,17 @@ int ATMController::ATMControllerMainProcess() {
             // error when out of bounds number selection (for demonstration purpose)
             if (accountSelection >=  bankSystem.getAccounts().size()) {
                 interrupt = true;
+                displayManager.drawErrorScreen();
+                return 1;
             }
 
             // check balance, deposit, withdraw
             interrupt = accountActionProcess(accountSelection);
+
+            if (interrupt) {
+                displayManager.drawErrorScreen();
+                return 1;
+            }
 
             // log out
             bankSystem.userLogOut();
